@@ -1,0 +1,70 @@
+/* florian koning */
+
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap');
+
+/* css code */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.bookingform {
+    display: flex;
+    align-content: center;
+    margin-top: 40px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.formboxTop {
+    display: flex;
+    width: 600px;
+    height: 200px;
+    border-radius: 10px;
+
+    border: solid 1px #c7c7c7;
+    background-color: #fff;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+
+    border-top: #09a066 10px solid;
+    margin-bottom: 20px;
+    padding-left: 5px;
+}
+
+.formbox {
+    display: flex;
+    width: 600px;
+    height: 200px;
+    border-radius: 10px;
+
+    border: solid 1px #c7c7c7;
+    background-color: #fff;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    
+    margin-bottom: 20px;
+    padding-left: 5px;
+}
+
+.bottomline {
+    border-bottom: 1px black solid;
+}
+
+.detailbox {
+    width: auto;
+    height: 800px;
+    border-radius: 10px;
+
+    border: solid 1px #c7c7c7;
+    background-color: #fff;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
