@@ -1,7 +1,7 @@
 /* florian koning */
 
 /* fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap');
 
 /* css code */
 * {
@@ -35,6 +35,8 @@
     border-top: #09a066 10px solid;
     margin-bottom: 20px;
     padding-left: 5px;
+
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .formbox {
@@ -48,9 +50,11 @@
     justify-content: center;
     align-content: center;
     flex-direction: column;
-    
+
     margin-bottom: 20px;
     padding-left: 5px;
+
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .bottomline {
@@ -58,13 +62,20 @@
 }
 
 .detailbox {
-    width: auto;
+    width: 600px;
     height: 800px;
     border-radius: 10px;
 
-    border: solid 1px #c7c7c7;
     background-color: #fff;
+    border: solid 1px #c7c7c7;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-align: center;
+
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.bookingInfo {
+    display: flex;
 }
