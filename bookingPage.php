@@ -24,7 +24,7 @@
                             <a class="nav-link" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="bookingPage.php">Booking</a>
+                            <a class="nav-link active" aria-current="page" href="bookingPage.php">Boeking</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Donkey's</a>
@@ -62,25 +62,9 @@
                         </select>
                     </div>
                 </div>
-                <div class="formbox">
-                    <div style="margin-bottom: 40px;">
-                        <h2 style="margin-bottom: 40px;">Aantal Personen</h2>
-                        <label for="exampleInputEmail1" class="form-label">Voer hier in met hoeveel personen u wilt rijzen.<span style="color: red;"> *</span></label>
-                        <select name="selectPersonen" class="form-select" aria-label="Default select example" required>
-                            <option value="" selected>Aantal personen die mee kunnen.</option>
-                            <option value="1">1 Persoon</option>
-                            <option value="2">2 Personen</option>
-                            <option value="3">3 Personen</option>
-                            <option value="4">4 Personen</option>
-                            <option value="5">5 Personen</option>
-                            <option value="6">6 Personen</option>
-                            <option value="7">7 Personen</option>
-                            <option value="8">8 Personen</option>
-                        </select>
-                    </div>
-                </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Aanvragen</button>
+                <button type="reset" class="btn btn-primary">Annuleer</button>
 
             </form>
         </div>

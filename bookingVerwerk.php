@@ -1,4 +1,11 @@
 <?php
+//! niet vergeten te mergen met vincent om session naam te krijgen en klant gegevens van Klant.php
+
+session_start();
+$_SESSION['naam'] = 'Henk Schuurvrouw';
+$_SESSION['email'] = 'henkschruurvrouw@gmail.com';
+$ingevoerdePinCode = 0;
+
 require 'includes/classes/booking.php';
 require 'connect.php';
 ?>
@@ -28,7 +35,7 @@ require 'connect.php';
                             <a class="nav-link" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="bookingPage.php">Booking</a>
+                            <a class="nav-link active" aria-current="page" href="bookingPage.php">Boeking</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Donkey's</a>
@@ -56,33 +63,58 @@ require 'connect.php';
         } else {
             echo "je hebt geen datum gekozen!";
         }
-
-        // kijkt of er een $_POST is voor  selectPersonen
-        if (isset($_POST["selectPersonen"])) {
-            $geselecteerdePersonen = $_POST["selectPersonen"];
-        } else {
-            echo "je hebt niet aantal personen gekozen!";
-        }
     } else {
         echo "we hebben geen formulier ontvangen.";
     }
+
     ?>
 
     <!-- gegevens van de booking/bonnetje -->
     <main>
         <div class="bookingform">
-            <div class="detailbox">
-                <h2 style="margin-top: 10px;">Alle Details Over De Donkey Travel</h2>
-                <?php
-                echo "geselecteerde route: " . $geselecteerdeRoute . "<br>";
-                echo "geselecteerde datum: " . $geselecteerdeDatum . "<br>";
-                echo "geselecteerde aantal personen: " . $geselecteerdePersonen . "<br>";
-                ?>
-            </div>
+            <form>
+                <div style="border-top: #09a066 10px solid;" class="boekingform">
+                    <div style="border-bottom: solid 1px #c7c7c7;">
+                        <h2>Uw Boeking Gegevens</h2>
+                        <?php
+                            echo "<div>";
+                            echo "Naam: " . $_SESSION['naam'] ."<br>";
+                            echo "Email: " . $_SESSION['email'] . "<br>";
+                            echo "geselecteerde route: " . $geselecteerdeRoute . "<br>";
+                            echo "geselecteerde datum: " . $geselecteerdeDatum . "<br>";    
+                            echo "</div>";
+                        ?>
+                    </div>
+                    <div style="margin-top: 5px;">
+                        <h2>Betaling</h2>
+                        <label for="exampleInputEmail1" class="form-label">Type hier uw pincode in om de boeking af te ronden.</label>
+                        <input type="text" class="form-control" name="pinCode" required>
+                        <button style="margin-top: 5px;" type="submit" class="btn btn-primary">Betaling</button>
+                    </div>
+                    <?php
+                    if ($_SERVER["REQUEST_METHOD"] == "GET") {
+                        if (isset($_GET['pinCode'])) {
+                            $ingevoerdePinCode = $_GET['pinCode'];
+                        } else {
+                            echo "Er is iets fout gegaan, kon pincode niet vinden!";
+                        }
+    
+                        $boeking = new Boekingen($conn);
+                        $boeking->create($geselecteerdeDatum, $ingevoerdePinCode);
+                    }
+                    ?>
+                </div>
+            </form>
         </div>
+
+
+
     </main>
 
 
 </body>
 
 </html>
+<?php
+$conn = NULL;
+?>
