@@ -16,7 +16,7 @@ require 'connect.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="includes/css/main.css">
-    <title>Document</title>
+    <title>Booking verwerk</title>
 </head>
 
 <body>
@@ -52,14 +52,14 @@ require 'connect.php';
 
         // kijkt of er een $_POST verzoek is voor selectroute
         if (isset($_POST["selectRoute"])) {
-            $geselecteerdeRoute = $_POST["selectRoute"];
+            $_SESSION['selectRoute'] = $_POST["selectRoute"];
         } else {
             echo "je hebt geen route gekozen!";
         }
 
         // kijkt of er een $_POST verzoek is voor startdatum
         if (isset($_POST["startDatum"])) {
-            $geselecteerdeDatum = $_POST["startDatum"];
+            $_SESSION['startDatum'] = $_POST["startDatum"];
         } else {
             echo "je hebt geen datum gekozen!";
         }
@@ -80,8 +80,8 @@ require 'connect.php';
                             echo "<div>";
                             echo "Naam: " . $_SESSION['naam'] ."<br>";
                             echo "Email: " . $_SESSION['email'] . "<br>";
-                            echo "geselecteerde route: " . $geselecteerdeRoute . "<br>";
-                            echo "geselecteerde datum: " . $geselecteerdeDatum . "<br>";    
+                            echo "geselecteerde route: " . $_SESSION['selectRoute'] . "<br>";
+                            echo "geselecteerde datum: " . $_SESSION['startDatum'] . "<br>";    
                             echo "</div>";
                         ?>
                     </div>
@@ -100,7 +100,7 @@ require 'connect.php';
                         }
     
                         $boeking = new Boekingen($conn);
-                        $boeking->create($geselecteerdeDatum, $ingevoerdePinCode);
+                        $boeking->create($_SESSION['startDatum'], $ingevoerdePinCode);
                     }
                     ?>
                 </div>
