@@ -73,7 +73,7 @@ class Klant{
         $klantEmail = $this->getKlantEmail();
         $klantTelefoon = $this->getKlantTelefoon();
         $klantWachtwoord = $this->getKlantWachtwoord();
-        $klantGewijzigd = $this->getKlantGewijzigd();
+        $klantGewijzigd = NULL;
 
         // gegevens in de juiste database tabel zetten
         $db->SQLCommando("insert into klanten values 
@@ -106,7 +106,7 @@ class Klant{
         }
     }
 
-    public function updateKlant($klantID){
+    public function updateKlant($klantNaam){
         $db = new Database("localhost","root","","donkey_travel");
 
         $klantID = $this->getKlantID();
@@ -114,7 +114,7 @@ class Klant{
         $klantEmail = $this->getKlantEmail();
         $klantTelefoon = $this->getKlantTelefoon();
         $klantWachtwoord = $this->getKlantWachtwoord();
-        $klantGewijzigd = $this->getKlantGewijzigd();
+        $klantGewijzigd = NULL;
 
         // Veranderen van de gegevens in de database gebaseerd op de gegeven supplier id
         $db->SQLCommando(
@@ -160,9 +160,30 @@ class Klant{
         $TheSame = password_verify($klantWachtwoord, $HashedWachtwoord);
 
         if($TheSame){
-            header("Location: http://localhost/Donkey_Traver/index.php");
+            header("Location: http://localhost/Donkey_Traver/klantLinks.php");
         } else{
             echo "We hebben u niet gevonden, probeer opnieuw.";
+        }
+    }
+
+    public function GegevenVeranderenWachtWoordCheck($klantNaam, $klantWachtwoord){
+        // Connectie maken met de database 
+        $db = new Database("localhost","root","","donkey_travel");
+
+        $HashedWachtwoord = "";
+
+        $logins = $db->SQLCommando("select * from klanten where naam = :naam", ["naam" => $klantNaam]);
+
+        foreach($logins as $login){
+            $HashedWachtwoord = $login["wachtwoord"];
+        }
+
+        $TheSame = password_verify($klantWachtwoord, $HashedWachtwoord);
+
+        if($TheSame){
+            $this->updateKlant($this->klantNaam);
+        } else{
+            echo "Verkeerd wachtwoord ingevoerd, probeer opnieuw.";
         }
     }
     
@@ -170,7 +191,7 @@ class Klant{
         $db = new Database("localhost","root","","donkey_travel");
 
         // Zoeken op supplier ID in de database
-        $klantList = $db->SQLCommando("select * from klanten where ID = :ID", ["ID" => $klantNaam]);
+        $klantList = $db->SQLCommando("select * from klanten where naam = :naam", ["naam" => $klantNaam]);
     
         // supplier gegevens opvragen
         foreach ($klantList as $klant) {

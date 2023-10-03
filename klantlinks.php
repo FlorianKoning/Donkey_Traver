@@ -1,14 +1,20 @@
+<?php
+session_start();
+
+echo $_SESSION["naam"] . "<br>";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEeah</title>
+    <title>YYYEEEEEEEEEEEEEEEEeeah</title>
 </head>
 <body>
     <ul>
         <li><a href="klantAanmelden1.php">Klant Aanmelden</a></li>
-        <li><a href="login.php">Klant Inloggen</a></li>
+        <li><a href="klantGegevenVeranderen1.php">Klant Gegevens Veranderen</a></li>
     </ul>
 </body>
 </html>

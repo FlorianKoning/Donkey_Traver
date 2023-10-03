@@ -7,5 +7,8 @@
 </head>
 <body>
     <p>hello there</p>
+    <ul>
+        <li><a href="login.php">Klant Inloggen</a></li>
+    </ul>
 </body>
 </html>
