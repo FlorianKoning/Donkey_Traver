@@ -106,7 +106,7 @@ class Klant{
         }
     }
 
-    public function updateKlant($klantNaam){
+    public function updateKlant($klantID){
         $db = new Database("localhost","root","","donkey_travel");
 
         $klantID = $this->getKlantID();
@@ -134,8 +134,6 @@ class Klant{
             "wachtwoord" => $klantWachtwoord,
             "gewijzigd" => $klantGewijzigd
         ]);
-
-        echo "<p>De klant is gewijzigd. <br /></p>";
     }
 
     public function deleteKlant($klantID){
@@ -166,7 +164,7 @@ class Klant{
         }
     }
 
-    public function GegevenVeranderenWachtWoordCheck($klantNaam, $klantWachtwoord){
+    public function GegevenVeranderenWachtWoordCheck($klantNaam, $klantWachtwoord, $klantID){
         // Connectie maken met de database 
         $db = new Database("localhost","root","","donkey_travel");
 
@@ -181,7 +179,9 @@ class Klant{
         $TheSame = password_verify($klantWachtwoord, $HashedWachtwoord);
 
         if($TheSame){
-            $this->updateKlant($this->klantNaam);
+            $this->klantWachtwoord = $HashedWachtwoord;
+            $this->klantID = $klantID;
+            $this->updateKlant($this->klantID);
         } else{
             echo "Verkeerd wachtwoord ingevoerd, probeer opnieuw.";
         }
@@ -226,7 +226,7 @@ class Klant{
         echo "<p>ID: " . $this->getKlantID() . "<br>";
         echo "Naam: " . $this->getKlantNaam() . "<br>";
         echo "Email: " . $this->getKlantEmail() . "<br>";
-        echo "Telefoon nr.: " . $this->getKlantTelefoon() . "<br>";
-        echo "Gewijzigd: " . $this->getKlantGewijzigd() . "<br><br></p>";
+        echo "Telefoon Nr. : " . $this->getKlantTelefoon() . "<br><br>";
+        //echo "Gewijzigd: " . $this->getKlantGewijzigd() . "<br><br></p>";
     }
 }

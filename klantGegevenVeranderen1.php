@@ -6,7 +6,7 @@ require "klant.php";
 $klant = new Klant($_SESSION["naam"]);
 $klant->searchKlantNaam($_SESSION["naam"]);
 
-
+$_SESSION["id"] = $klant->getKlantID();
 
 ?>
 <!DOCTYPE html>
@@ -28,6 +28,7 @@ $klant->searchKlantNaam($_SESSION["naam"]);
         <div>
             <h1>Welke gegevens wilt u wijzigen?</h1>
             <form action="klantGegevenVeranderen2.php" method="post">
+                ID: <?php echo $klant->getKlantID(); ?><br>
                 Naam: <input type="text" name="naamvak" value="<?php echo $klant->getKlantNaam()?>" required> <br>
                 Email: <input type="email" name="emailvak" value="<?php echo $klant->getKlantEmail()?>" required> <br>
                 Telefoon Nr.: <input type="number" name="telefoonvak" value="<?php echo $klant->getKlantTelefoon()?>" required> <br><br>

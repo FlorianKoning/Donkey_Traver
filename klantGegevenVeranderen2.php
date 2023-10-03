@@ -19,9 +19,10 @@ session_start();
 
     <main>
         <div>
-            <h1>Uw nieuwe gegevens</h1>
+            <h1>Resultaat</h1>
             <?php
             // klantgegevens uit het formulier halen
+            $klantID = $_SESSION["id"];
             $klantNaam = $_POST["naamvak"];
             $klantEmail = $_POST["emailvak"];
             $klantTelefoon = $_POST["telefoonvak"];
@@ -30,15 +31,17 @@ session_start();
             // klant Class aanvragen
             require "klant.php";
 
-            $klant = new Klant($klantNaam, $klantWachtwoord, $klantEmail, $klantTelefoon);
+            $klant = new Klant($klantNaam, $klantWachtwoord, $klantEmail, $klantTelefoon, $klantID);
             
-            $klant->GegevenVeranderenWachtWoordCheck($_SESSION["naam"], $klantWachtwoord);
+            $klant->GegevenVeranderenWachtWoordCheck($_SESSION["naam"], $klantWachtwoord, $klantID);
             
             echo "Uw nieuwe gegevens <br>";
             $klant->afdrukkenKlant();
 
             echo "<br>";
             echo "<button><a href='klantLinks.php'> Terug naar het menu </a></button>";
+
+            $_SESSION["naam"] = $klant->getKlantNaam();
             ?>
         </div>
 
