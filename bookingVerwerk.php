@@ -1,3 +1,5 @@
+<!-- Florian Koning -->
+
 <?php
 //! niet vergeten te mergen met vincent om session naam te krijgen en klant gegevens van Klant.php
 
@@ -46,29 +48,6 @@ require 'connect.php';
         </nav>
     </header>
 
-    <!-- php code dat de POST checkt -->
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-        // kijkt of er een $_POST verzoek is voor selectroute
-        if (isset($_POST["selectRoute"])) {
-            $_SESSION['selectRoute'] = $_POST["selectRoute"];
-        } else {
-            echo "je hebt geen route gekozen!";
-        }
-
-        // kijkt of er een $_POST verzoek is voor startdatum
-        if (isset($_POST["startDatum"])) {
-            $_SESSION['startDatum'] = $_POST["startDatum"];
-        } else {
-            echo "je hebt geen datum gekozen!";
-        }
-    } else {
-        echo "we hebben geen formulier ontvangen.";
-    }
-
-    ?>
-
     <!-- gegevens van de booking/bonnetje -->
     <main>
         <div class="bookingform">
@@ -95,12 +74,18 @@ require 'connect.php';
                     if ($_SERVER["REQUEST_METHOD"] == "GET") {
                         if (isset($_GET['pinCode'])) {
                             $ingevoerdePinCode = $_GET['pinCode'];
+
+                            if (strlen($ingevoerdePinCode) > 4) {
+                                echo 'pincode is te lang.';
+                            } else if (strlen($ingevoerdePinCode) < 4) {
+                                echo 'pincode is te kort.';
+                            } else {
+                                $boeking = new Boekingen($conn);
+                                $boeking->create($_SESSION['startDatum'], $ingevoerdePinCode);
+                            }
                         } else {
                             echo "Er is iets fout gegaan, kon pincode niet vinden!";
                         }
-    
-                        $boeking = new Boekingen($conn);
-                        $boeking->create($_SESSION['startDatum'], $ingevoerdePinCode);
                     }
                     ?>
                 </div>
