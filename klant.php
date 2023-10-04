@@ -1,6 +1,6 @@
 <?php 
 
-require "connect.php";
+require_once "connect.php";
 
 // Vincent Kroon
 
@@ -136,11 +136,11 @@ class Klant{
         ]);
     }
 
-    public function deleteKlant($klantID){
+    public function deleteKlant($klantNaam){
         $db = new Database("localhost","root","","donkey_travel");
         
         // Checken waar de supplier id in de database overeenkomt met de gegeven supplier id
-        $db->SQLCommando("delete from klanten where ID  = :ID", ["ID" => $klantID]);
+        $db->SQLCommando("delete from klanten where naam  = :naam", ["naam" => $klantNaam]);
     }
 
     public function logInCheckKlant($klantNaam, $klantWachtwoord){
@@ -184,6 +184,27 @@ class Klant{
             $this->updateKlant($this->klantID);
         } else{
             echo "Verkeerd wachtwoord ingevoerd, probeer opnieuw.";
+        }
+    }
+
+    public function VerwijderCheck($klantNaam, $klantWachtwoord){
+        // Connectie maken met de database 
+        $db = new Database("localhost","root","","donkey_travel");
+
+        $HashedWachtwoord = "Niks";
+
+        $logins = $db->SQLCommando("select * from klanten where naam = :naam", ["naam" => $klantNaam]);
+
+        foreach($logins as $login){
+            $HashedWachtwoord = $login["wachtwoord"];
+        }
+
+        $TheSame = password_verify($klantWachtwoord, $HashedWachtwoord);
+
+        if($TheSame){
+            return true;
+        } else{
+            return false;
         }
     }
     

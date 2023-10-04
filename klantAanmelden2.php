@@ -16,7 +16,7 @@
         <div>
             <h1>Gefeliciteerd</h1>
             <?php
-            require "Klant.php";
+            require_once "Klant.php";
 
             $klantID = NULL;
             $klantNaam = $_POST ["naamvak"];

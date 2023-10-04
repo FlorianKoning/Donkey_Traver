@@ -29,7 +29,7 @@ session_start();
             $klantWachtwoord = $_POST["wachtwoordvak"];
 
             // klant Class aanvragen
-            require "klant.php";
+            require_once "klant.php";
 
             $klant = new Klant($klantNaam, $klantWachtwoord, $klantEmail, $klantTelefoon, $klantID);
             
