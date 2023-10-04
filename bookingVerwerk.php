@@ -67,7 +67,7 @@ require 'connect.php';
                     <div style="margin-top: 5px;">
                         <h2>Betaling</h2>
                         <label for="exampleInputEmail1" class="form-label">Type hier uw pincode in om de boeking af te ronden.</label>
-                        <input type="text" class="form-control" name="pinCode" required>
+                        <input type="number" class="form-control" name="pinCode" required>
                         <button style="margin-top: 5px;" type="submit" class="btn btn-primary">Betaling</button>
                     </div>
                     <?php
@@ -76,9 +76,9 @@ require 'connect.php';
                             $ingevoerdePinCode = $_GET['pinCode'];
 
                             if (strlen($ingevoerdePinCode) > 4) {
-                                echo 'pincode is te lang.';
+                                echo 'Pincode is te lang.';
                             } else if (strlen($ingevoerdePinCode) < 4) {
-                                echo 'pincode is te kort.';
+                                echo 'Pincode is te kort.';
                             } else {
                                 $boeking = new Boekingen($conn);
                                 $boeking->create($_SESSION['startDatum'], $ingevoerdePinCode);

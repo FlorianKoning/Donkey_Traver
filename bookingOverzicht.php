@@ -1,3 +1,7 @@
+<?php
+require 'includes/classes/booking.php';
+require 'connect.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,9 +47,13 @@
             <h1>Boeking Overzicht</h1>
         </div>
 
-
-
-
+        <div class="overzichtbox">
+            <?php
+            $booking = new Boekingen($conn);
+            $booking->readTabel();
+            ?>     
+        </div>
+    
     </main>
 
     

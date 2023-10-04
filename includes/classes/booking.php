@@ -33,6 +33,36 @@ class Boekingen {
         }
     }
 
+    public function readTabel() {
+        $sql = "SELECT * from boekingen";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        echo "<table class='table'>";
+        echo "<tr><th>ID</th><th>Start Datum</th><th>Pin Code</th><th>Tochten ID</th><th>Klanten ID</th></tr><br>";
+
+        while ($row = $stmt->fetch()) { 
+            echo "<tr>";
+            echo "<td>" . $row['ID'] . "</td>";
+            echo "<td>" . $row['startDatum'] . "</td>";
+            echo "<td>" . $row['pinCode'] . "</td>";
+            echo "<td>" . $row['tochtenID'] . "</td>";
+            echo "<td>" . $row['klantenID'] . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+    }
+
+    public function search($ID) {
+        $sql = "SELECT pinCode FROM boekingen WHERE ? = ID";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$ID]);
+
+        if ($row = $stmt->fetch()) {
+            echo $row['pinCode'];
+        }
+    }
+
     
     
 

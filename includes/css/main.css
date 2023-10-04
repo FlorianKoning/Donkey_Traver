@@ -102,3 +102,13 @@
     align-items: center;
 
 }
+
+.overzichtbox {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+
+    padding: 0px 5px 0px 5px;
+    border: solid 1px #c7c7c7;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
