@@ -16,10 +16,10 @@
         <div>
             <h1>Vul uw gegevens in</h1>
             <form action="klantAanmelden2.php" method="post">
-                Naam:           <input type="text"     name="naamvak"      required><br>
-                Email:          <input type="email"    name="emailvak"     required><br>
-                Telefoon Nr.:   <input type="number"   name="telefoonvak"  required><br>
-                Wachtwoord:     <input type="password" name="wachtwoordvak" required><br>
+                Naam: <input type="text" name="naamvak" required><br>
+                Email: <input type="email" name="emailvak" required><br>
+                Telefoon Nr.: <input type="number" name="telefoonvak" maxlength="10" required><br>
+                Wachtwoord: <input type="password" name="wachtwoordvak" required><br>
                 <input type="submit">
             </form>
         </div>

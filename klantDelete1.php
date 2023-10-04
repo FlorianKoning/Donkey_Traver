@@ -12,8 +12,8 @@ $_SESSION["naam"];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="style.css">
-    <title>Delete Supplier 2</title>
+    <link type="text/css" rel="stylesheet" href="">
+    <title>Weet u het zeker?</title>
 </head>
 <body>
 <header>

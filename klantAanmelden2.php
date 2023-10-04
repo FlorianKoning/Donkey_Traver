@@ -33,6 +33,8 @@
             $klant->createKlant();
             echo "<p>Uw account is toegevoegd</p><br>";
             ?>
+
+            <button><a href='klantLinks.php'> Terug naar het menu </a></button><br><br>
         </div>
         
     </main>
