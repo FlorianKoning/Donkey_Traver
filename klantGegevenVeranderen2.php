@@ -39,7 +39,7 @@ session_start();
             $klant->afdrukkenKlant();
 
             echo "<br>";
-            echo "<button><a href='klantLinks.php'> Terug naar het menu </a></button>";
+            echo "<button><a href='klantlinks.php'> Terug naar het menu </a></button>";
 
             $_SESSION["naam"] = $klant->getKlantNaam();
             ?>

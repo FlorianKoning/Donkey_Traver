@@ -31,11 +31,12 @@ $_SESSION["id"] = $klant->getKlantID();
                 ID: <?php echo $klant->getKlantID(); ?><br>
                 Naam: <input type="text" name="naamvak" value="<?php echo $klant->getKlantNaam()?>" required> <br>
                 Email: <input type="email" name="emailvak" value="<?php echo $klant->getKlantEmail()?>" required> <br>
-                Telefoon Nr.: <input type="number" name="telefoonvak" maxlength="10" value="<?php echo $klant->getKlantTelefoon()?>" required> <br><br>
+                Telefoon Nr.: <input type="text" name="telefoonvak" maxlength="10" value="<?php echo $klant->getKlantTelefoon()?>" required> <br><br>
                 Vul uw wachtwoord in als bevestiging. <br>
                 Wachtwoord: <input type="password" name="wachtwoordvak" required><br>
                 <input type="submit">
             </form>
+            <a href="klantlinks.php"><button>Annuleren</button></a>
         </div>
         
     </main>

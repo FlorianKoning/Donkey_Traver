@@ -42,6 +42,7 @@ $_SESSION["naam"];
             <input type='password' name='wachtwoordvak' required><br><br>
             <input type='submit'>
         </form> 
+        <a href="klantlinks.php"><button>Annuleren</button></a>
     </div>
     
 </main>

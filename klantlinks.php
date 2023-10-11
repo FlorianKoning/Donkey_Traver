@@ -17,6 +17,7 @@ echo $_SESSION["naam"] . "<br>";
         <li><a href="klantGegevenVeranderen1.php">Klant Gegevens Veranderen</a></li>
         <li><a href="klantDelete1.php">Klant Verwijderen</a></li>
         <li><a href="klantRead.php">Onze Klanten Zien</a></li>
+        <li><a href="login.php">Uitloggen</a></li>
     </ul>
 </body>
 </html>

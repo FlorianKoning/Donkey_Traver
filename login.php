@@ -17,10 +17,12 @@ session_start();
     </header>
     <main>
         <div>
-            <h1>Login</h1>
+            <h2>Mijn Donkey Travel Login</h2>
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                Naam: <input type="text" name="naam" required><br>
-                Wachtwoord: <input type="password" name="wachtwoord" required><br>
+                Naam: <br>
+                <input type="text" name="naam" placeholder="Naam" required><br>
+                Wachtwoord: <br>
+                <input type="password" name="wachtwoord" placeholder="Wachtwoord" required><br>
                 <input type="submit">
             </form>
             <p>
@@ -30,10 +32,7 @@ session_start();
             <?php
             require "klant.php";
 
-            if(empty($_POST["naam"]) && empty($_POST["wachtwoord"])){
-                echo "Vul allebei de vakken in.";
-
-            } elseif(!empty($_POST["naam"]) || !empty($_POST["wachtwoord"])){
+            if(!empty($_POST["naam"]) || !empty($_POST["wachtwoord"])){
                 $_SESSION["naam"] = $_POST["naam"];
                 $klantWachtwoord = $_POST["wachtwoord"];
 

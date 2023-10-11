@@ -8,12 +8,12 @@ class Klant{
     private int $klantID;
     private string $klantNaam;
     private string $klantEmail;
-    private int $klantTelefoon;
+    private string $klantTelefoon;
     private string $klantWachtwoord;
     private string $klantGewijzigd;
 
     // wanneer de class wordt aangemaakt met | new Supplier() | dan worden er standaard gegevens ingezet op de variabelen bovenaan
-    public function __construct($klantNaam="", $klantWachtwoord="", $klantEmail="", $klantTelefoon=0, $klantGewijzigd ="", $klantID=0){
+    public function __construct($klantNaam="", $klantWachtwoord="", $klantEmail="", $klantTelefoon="", $klantGewijzigd ="", $klantID=0){
         $this->klantNaam = $klantNaam;
         $this->klantEmail = $klantEmail;
         $this->klantTelefoon = $klantTelefoon;
@@ -91,19 +91,28 @@ class Klant{
     public function readKlanten(){
         $db = new Database("localhost","root","","donkey_travel");
 
-        // Alle supplier gegevens in de database opvragen voor elk bestaand supplier ID
+        // Alle klanten gegevens in de database opvragen
         $klantList = $db->SQLCommando("select * from klanten where 1",[]);
 
-        // Alle supplier gegevens laten zien per uniek supplier ID
+        echo "<table>"; 
+        echo "<th>ID</th>";
+        echo "<th>Naam</th>";
+        echo "<th>Email</th>";
+        echo "<th>Telefoon nummer</th>";
+        echo "<th>Laatst gewijzigd</th>";
+        echo "</tr>";
+
+        // Alle klanten gegevens laten zien
         foreach($klantList as $klant){
-            echo "<div>";
-            echo "<p>Klant ID: " . $klant["ID"] . "<br>";
-            echo "Naam: " . $klant["naam"] . "<br>";
-            echo "Email: " . $klant["email"] . "<br>";
-            echo "Telefoon nr.: " . $klant["telefoon"] . "<br>";
-            echo "Laatst Gewijzigd: " . $klant["gewijzigd"] . "<br><br>";
-            echo "</div><br>";
+            echo "<tr>";
+            echo "<td>" . $klant["ID"] . "</td>";
+            echo "<td>" . $klant["naam"] . "</td>";
+            echo "<td>" . $klant["email"] . "</td>";
+            echo "<td>" . $klant["telefoon"] . "</td>";
+            echo "<td>" . $klant["gewijzigd"] . "</td>";
+            echo "</tr>";
         }
+        echo "</table>";
     }
 
     public function updateKlant($klantID){
@@ -237,7 +246,6 @@ class Klant{
             $this->klantNaam = $klant["naam"];
             $this->klantEmail = $klant["email"];
             $this->klantTelefoon = $klant["telefoon"];
-            $this->klantWachtwoord = $klant["wachtwoord"];
             $this->klantGewijzigd = $klant["gewijzigd"];
         }
     }
