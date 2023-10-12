@@ -39,7 +39,7 @@ $_SESSION["naam"];
         <form action='klantDelete2.php' method='post'>
             <input type='hidden' name='naamvak' value='<?php echo $klantNaam; ?>'><br>
             Vul hier uw wachtwoord in voor bevestiging.
-            <input type='password' name='wachtwoordvak' required><br><br>
+            <input type='password' name='wachtwoordvak' placeholder="Wachtwoord" required><br><br>
             <input type='submit'>
         </form> 
         <a href="klantlinks.php"><button>Annuleren</button></a>

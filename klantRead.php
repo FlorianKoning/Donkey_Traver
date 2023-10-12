@@ -7,6 +7,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="">
     <title>Read Klant</title>
+    <style>
+        table, th, td {
+            border: 2px solid lightgray;
+            border-collapse: collapse;
+        }
+
+        table{
+            width: 90%;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        .idhead{
+            padding: 6px;
+            background-color: green;
+            color: white;
+        }
+
+        .naamhead, .emailhead, .telefoonhead, .gewijzigdhead{
+            padding-left: 8px;
+            padding-right: 30px;
+            padding-bottom: 20px;
+            padding-top: 20px;
+            background-color: green;
+            color: white;
+        }
+
+        .idrow{
+            padding: 6px;
+        }
+
+        .naamrow, .emailrow, .telefoonrow, .gewijzigdrow{
+            padding-left: 8px;
+            padding-right: 30px;
+            padding-bottom: 20px;
+            padding-top: 20px;
+        }
+
+        tr:nth-child(even) {
+            background-color: whitesmoke;
+        }
+
+    </style>
 </head>
 <body>
     <main>

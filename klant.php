@@ -95,21 +95,21 @@ class Klant{
         $klantList = $db->SQLCommando("select * from klanten where 1",[]);
 
         echo "<table>"; 
-        echo "<th>ID</th>";
-        echo "<th>Naam</th>";
-        echo "<th>Email</th>";
-        echo "<th>Telefoon nummer</th>";
-        echo "<th>Laatst gewijzigd</th>";
+        echo "<th class='idhead'>ID</th>";
+        echo "<th class='naamhead'>Naam</th>";
+        echo "<th class='emailhead'>Email</th>";
+        echo "<th class='telefoonhead'>Telefoon nummer</th>";
+        echo "<th class='gewijzigdhead'>Laatst gewijzigd</th>";
         echo "</tr>";
 
         // Alle klanten gegevens laten zien
         foreach($klantList as $klant){
             echo "<tr>";
-            echo "<td>" . $klant["ID"] . "</td>";
-            echo "<td>" . $klant["naam"] . "</td>";
-            echo "<td>" . $klant["email"] . "</td>";
-            echo "<td>" . $klant["telefoon"] . "</td>";
-            echo "<td>" . $klant["gewijzigd"] . "</td>";
+            echo "<td class='idrow'>" . $klant["ID"] . "</td>";
+            echo "<td class='naamrow'>" . $klant["naam"] . "</td>";
+            echo "<td class='emailrow'>" . $klant["email"] . "</td>";
+            echo "<td class='telefoonrow'>" . $klant["telefoon"] . "</td>";
+            echo "<td class='gewijzigdrow'>" . $klant["gewijzigd"] . "</td>";
             echo "</tr>";
         }
         echo "</table>";
