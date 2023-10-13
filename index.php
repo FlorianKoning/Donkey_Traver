@@ -50,6 +50,3 @@ require 'connect.php';
 </body>
 
 </html>
-<?php
-$conn = NULL;
-?>

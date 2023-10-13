@@ -4,9 +4,27 @@ require 'connect.php';
 
 class Boekingen {
     private $conn;
+    private int $pinCode;
 
     public function __construct ($db) {
         $this->conn = $db;
+    }
+
+    // alle getters
+    public function getDatum($ID) {
+        $sql = "SELECT startDatum FROM bookingen WHERE ID = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute[$ID];
+    }
+
+    public function getPinCode($ID) {
+        $sql = "SELECT pinCode FROM bookingen WHERE ID = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute[$ID];
+
+        if ($row = $stmt->fetch()) {
+            $this->pinCode = $row['pinCode'];
+        }
     }
 
     public function read($ID) {
@@ -39,7 +57,9 @@ class Boekingen {
         $stmt->execute();
 
         echo "<table class='table'>";
-        echo "<tr><th>ID</th><th>Start Datum</th><th>Pin Code</th><th>Tochten ID</th><th>Klanten ID</th></tr><br>";
+        echo "<tr><th style='background-color: green; color: white;'>ID</th><th style='background-color: green; color: white;'>Start Datum</th>
+                <th style='background-color: green; color: white;'>Pin Code</th><th style='background-color: green; color: white;'>Tochten ID</th>
+                <th style='background-color: green; color: white;'>Klanten ID</th></tr><br>";
 
         while ($row = $stmt->fetch()) { 
             echo "<tr>";
@@ -60,6 +80,18 @@ class Boekingen {
 
         if ($row = $stmt->fetch()) {
             echo $row['pinCode'];
+        }
+    }
+
+    public function update($datum, $pincode, $ID) {
+        $sql = "UPDATE boekingen SET startDatum = ?, pinCode = ? WHERE ID = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$datum, $pincode, $ID]);
+
+        if ($stmt) {
+            echo 'Je boeking is bij gewerkt';
+        } else {
+            echo "Er is iets fout gegaan, kon de boeking niet bijwerken!";
         }
     }
 
