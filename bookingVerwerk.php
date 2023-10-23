@@ -40,6 +40,9 @@ require 'connect.php';
                             <a class="nav-link active" aria-current="page" href="bookingPage.php">Boeking</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="bookingUpdate.php">Boeking Verwijderen</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="#">Donkey's</a>
                         </li>
                     </ul>

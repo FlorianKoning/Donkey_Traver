@@ -31,13 +31,16 @@ $boeking = new Boekingen($conn);
                             <a class="nav-link" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="bookingPage.php">Boeking</a>
+                            <a class="nav-link" aria-current="page" href="bookingPage.php">Boeking</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="bookingOverzicht.php">Boeking Overzicht</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="bookingUpdate.php">Boeking Update</a>
+                            <a class="nav-link active" aria-current="page" href="bookingUpdate.php">Boeking Update</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="bookingVerwijderen.php">Boeking Verwijderen</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Donkey's</a>
@@ -53,7 +56,7 @@ $boeking = new Boekingen($conn);
             <form method="GET">
                 <div class="formbox">
                     <div style="margin-bottom: 40px;">
-                        <h2 style="margin-bottom: 40px;">Datum Donkey Update</h2>
+                        <h2 style="margin-bottom: 40px;">Datum Donkey Travel</h2>
                         <label for="exampleInputEmail1" class="form-label">Voer hier de de datum in<span style="color: red;"> *</span></label>
                         <input type="date" class="form-control" name="startDatum" required>
                     </div>
@@ -62,26 +65,10 @@ $boeking = new Boekingen($conn);
                     <div style="margin-bottom: 40px;">
                         <h2 style="margin-bottom: 40px;">Datum Donkey Update</h2>
                         <label for="exampleInputEmail1" class="form-label">Voer hier de pin code in<span style="color: red;"> *</span></label>
-                        <input type="number" class="form-control" name="pinCode" value="<?php echo $boeking->getPinCode(11); ?>" required>
+                        <input type="number" class="form-control" name="pinCode" value="<?php echo $boeking->getPinCode(11);     ?>" required>
                         <?php
-                        if ($_SERVER["REQUEST_METHOD"] == "GET") {
-                            if (isset($_GET['startDatum'])) {
-                                $ingevoerdeDatum = $_GET['startDatum'];
-                            }
-
-                            if (isset($_GET['pinCode'])) {
-                                $ingevoerdePinCode = $_GET['pinCode'];
-
-                                if (strlen($ingevoerdePinCode) > 4) {
-                                    echo 'Pincode is te lang.';
-                                } else if (strlen($ingevoerdePinCode) < 4) {
-                                    echo 'Pincode is te kort.';
-                                } else {
-                                    $boeking->update($ingevoerdeDatum, $ingevoerdePinCode, 11);
-                                }
-                            }
-                        }
-                    ?>
+        
+                        ?>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Aanvragen</button>
