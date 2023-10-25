@@ -73,7 +73,7 @@ class Boekingen {
         echo "</table>";
     }
 
-    public function search($ID) {
+    public function searchPincode($ID) {
         $sql = "SELECT pinCode FROM boekingen WHERE ? = ID";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([$ID]);
@@ -81,6 +81,28 @@ class Boekingen {
         if ($row = $stmt->fetch()) {
             echo $row['pinCode'];
         }
+    }
+
+    public function searchTabel($ID) {
+        $sql = "SELECT * FROM boekingen WHERE ? = ID";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$ID]);
+
+        echo "<table class='table'>";
+        echo "<tr><th style='background-color: green; color: white;'>ID</th><th style='background-color: green; color: white;'>Start Datum</th>
+                <th style='background-color: green; color: white;'>Pin Code</th><th style='background-color: green; color: white;'>Tochten ID</th>
+                <th style='background-color: green; color: white;'>Klanten ID</th></tr><br>";
+
+        while ($row = $stmt->fetch()) { 
+            echo "<tr>";
+            echo "<td>" . $row['ID'] . "</td>";
+            echo "<td>" . $row['startDatum'] . "</td>";
+            echo "<td>" . $row['pinCode'] . "</td>";
+            echo "<td>" . $row['tochtenID'] . "</td>";
+            echo "<td>" . $row['klantenID'] . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
     }
 
     public function update($datum, $pincode, $ID) {
@@ -106,6 +128,8 @@ class Boekingen {
             echo "Er is iets fout gegaan, kon de boeking niet verwijderen!";
         }
     }
+
+
     
 
 } 
