@@ -1,6 +1,6 @@
 <?php 
 
-require_once "connect.php";
+require_once "connectDB.php";
 
 // Vincent Kroon
 
