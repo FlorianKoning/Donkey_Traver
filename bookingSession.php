@@ -1,6 +1,8 @@
 <!-- florian koning -->
 <!-- stopt alles van de post in een session en stuurt je door naar bookingverwerk.php -->
 <?php
+session_start();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // kijkt of er een $_POST verzoek is voor selectroute

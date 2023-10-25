@@ -95,7 +95,17 @@ class Boekingen {
         }
     }
 
-    
+    public function delete($ID) {
+        $sql = "DELETE  FROM `boekingen` WHERE ID = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$ID]);
+
+        if ($stmt) {
+            echo 'Je boeking is verwijderd';
+        } else {
+            echo "Er is iets fout gegaan, kon de boeking niet verwijderen!";
+        }
+    }
     
 
 } 

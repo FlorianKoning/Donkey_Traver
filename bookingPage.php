@@ -53,7 +53,7 @@
                 <h2 style="margin-bottom: 30px; border-bottom: 1px #c7c7c7 solid;">Vul de form hier onder in en plan je trip!</h2>
                 <P style="color: red;">* betekent dat het moet ingevoerd worden</P>
             </div>
-            <form action="bookingVerwerk.php" method="POST">
+            <form action="bookingSession.php" method="POST">
                 <div class="formbox">
                     <div style="margin-bottom: 40px;">
                         <h2 style="margin-bottom: 40px;">Datum Donkey Travel</h2>
@@ -80,6 +80,10 @@
             </form>
         </div>
     </main>
+
+    <?php
+
+    ?>
 
 </body>
 
