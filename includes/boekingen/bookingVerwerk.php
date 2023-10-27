@@ -1,15 +1,19 @@
 <!-- Florian Koning -->
 
 <?php
-//! niet vergeten te mergen met vincent om session naam te krijgen en klant gegevens van Klant.php
-
 session_start();
-$_SESSION['naam'] = 'Henk Schuurvrouw';
-$_SESSION['email'] = 'henkschruurvrouw@gmail.com';
+$_SESSION['naam'];
+
+require '../classes/booking.php';
+require '../classes/klant.php';
+
+$klant = new Klant();
+$klant->searchKlantNaam($_SESSION["naam"]);
+
+$klantNaam = $klant->getKlantNaam();
+$klantEmail = $klant->getKlantEmail();
 $ingevoerdePinCode = 0;
 
-require 'includes/classes/booking.php';
-require 'connect.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +21,7 @@ require 'connect.php';
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="includes/css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
     <title>Booking verwerk</title>
 </head>
 
@@ -34,7 +38,7 @@ require 'connect.php';
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php">Home</a>
+                            <a class="nav-link" aria-current="page" href="../../homePagina.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="bookingPage.php">Boeking</a>
@@ -60,8 +64,8 @@ require 'connect.php';
                         <h2>Uw Boeking Gegevens</h2>
                         <?php
                             echo "<div>";
-                            echo "Naam: " . $_SESSION['naam'] ."<br>";
-                            echo "Email: " . $_SESSION['email'] . "<br>";
+                            echo "Naam: " . $klantNaam ."<br>";
+                            echo "Email: " . $klantEmail . "<br>";
                             echo "geselecteerde route: " . $_SESSION['selectRoute'] . "<br>";
                             echo "geselecteerde datum: " . $_SESSION['startDatum'] . "<br>";    
                             echo "</div>";
@@ -83,11 +87,13 @@ require 'connect.php';
                             } else if (strlen($ingevoerdePinCode) < 4) {
                                 echo 'Pincode is te kort.';
                             } else {
-                                $boeking = new Boekingen($conn);
+                                $db = new Database("localhost", "root", "", "donkey_travel");
+                                $boeking = new Boekingen($db->conn);
+                    
                                 $boeking->create($_SESSION['startDatum'], $ingevoerdePinCode);
                             }
-                        } else {
-                            echo "Er is iets fout gegaan, kon pincode niet vinden!";
+                        } else if ($ingevoerdePinCode != 0) {
+                            echo "pincode nog niet ingevoerd of niet gevonden.";
                         }
                     }
                     ?>

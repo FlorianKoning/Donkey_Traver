@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require "klant.php";
+require "../classes/klant.php";
 
 $klant = new Klant($_SESSION["naam"]);
 $klant->searchKlantNaam($_SESSION["naam"]);
@@ -36,7 +36,7 @@ $_SESSION["id"] = $klant->getKlantID();
                 Wachtwoord: <input type="password" name="wachtwoordvak" required><br>
                 <input type="submit">
             </form>
-            <a href="klantlinks.php"><button>Annuleren</button></a>
+            <a href="/homePagina.php"><button>Annuleren</button></a>
         </div>
         
     </main>

@@ -1,6 +1,6 @@
 <?php 
 
-require_once "connectDB.php";
+require_once "connect.php";
 
 // Vincent Kroon
 
@@ -167,7 +167,7 @@ class Klant{
         $TheSame = password_verify($klantWachtwoord, $HashedWachtwoord);
 
         if($TheSame){
-            header("Location: http://localhost/Donkey_Traver/klantLinks.php");
+            header("Location: http://localhost/Donkey_Travel/homePagina.php");
         } else{
             echo "We hebben u niet gevonden, probeer opnieuw.";
         }

@@ -1,7 +1,3 @@
-<?php
-require 'includes/classes/booking.php';
-require 'connect.php';
-?>
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -26,13 +22,13 @@ require 'connect.php';
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                            <a class="nav-link active" aria-current="page" href="homePagina.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="bookingPage.php">Boeking</a>
+                            <a class="nav-link" href="./includes/boekingen/bookingPage.php">Boeking</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Donkey's</a>
+                            <a class="nav-link" href="./includes/klanten/klantHome.php">Klant</a>
                         </li>
                     </ul>
                 </div>

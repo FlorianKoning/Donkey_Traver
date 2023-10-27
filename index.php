@@ -26,11 +26,11 @@ session_start();
                 <input type="submit">
             </form>
             <p>
-                Nog geen account? Dan kan je een <a href="klantAanmelden1.php">Account aanmaken</a>.
+                Nog geen account? Dan kan je een <a href="includes/klanten/klantAanmelden1.php">Account aanmaken</a>.
             </p>
 
             <?php
-            require "klant.php";
+            require "includes/classes/klant.php";
 
             if(!empty($_POST["naam"]) || !empty($_POST["wachtwoord"])){
                 $_SESSION["naam"] = $_POST["naam"];

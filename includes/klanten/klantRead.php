@@ -13,9 +13,9 @@
         <div>
             <h1>Tabel met Huidige Klanten</h1>
 
-            <button><a href='klantLinks.php'> Terug naar het menu </a></button><br><br>
+            <button><a href='/homePagina.php'> Terug naar het menu </a></button><br><br>
             <?php
-            require_once "klant.php";
+            require_once "../classes/klant.php";
 
             $klant = new Klant();
             $klant->readKlanten();

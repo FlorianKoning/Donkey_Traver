@@ -29,7 +29,7 @@ session_start();
             $klantWachtwoord = $_POST["wachtwoordvak"];
 
             // klant Class aanvragen
-            require_once "klant.php";
+            require_once "../classes/klant.php";
 
             $klant = new Klant($klantNaam, $klantWachtwoord, $klantEmail, $klantTelefoon, $klantID);
             
@@ -39,7 +39,7 @@ session_start();
             $klant->afdrukkenKlant();
 
             echo "<br>";
-            echo "<button><a href='klantlinks.php'> Terug naar het menu </a></button>";
+            echo "<button><a href='/homePagina.php'> Terug naar het menu </a></button>";
 
             $_SESSION["naam"] = $klant->getKlantNaam();
             ?>

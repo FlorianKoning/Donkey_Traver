@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 if ($_SESSION['selectRoute'] && $_SESSION['startDatum']) {
-    header("Location: http://localhost/Donkey_travel/bookingVerwerk.php");
+    header("Location: http://localhost/Donkey_travel/includes/boekingen/bookingVerwerk.php");
 } else {
     echo "er is iets fout gegaan, probeer het nog een keer.";
 }

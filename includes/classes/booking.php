@@ -52,9 +52,32 @@ class Boekingen {
     }
 
     public function readTabel() {
-        $sql = "SELECT * from boekingen";
+
+        $sql = "SELECT * FROM boekingen";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
+
+        echo "<table class='table'>";
+        echo "<tr><th style='background-color: green; color: white;'>ID</th><th style='background-color: green; color: white;'>Start Datum</th>
+                <th style='background-color: green; color: white;'>Pin Code</th><th style='background-color: green; color: white;'>Tochten ID</th>
+                <th style='background-color: green; color: white;'>Klanten ID</th></tr><br>";
+
+        while ($row = $stmt->fetch()) { 
+            echo "<tr>";
+            echo "<td>" . $row['ID'] . "</td>";
+            echo "<td>" . $row['startDatum'] . "</td>";
+            echo "<td>" . $row['pinCode'] . "</td>";
+            echo "<td>" . $row['tochtenID'] . "</td>";
+            echo "<td>" . $row['klantenID'] . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+    }
+
+    public function readTabelID($ID) {
+        $sql = "SELECT * FROM boekingen WHERE ? = ID";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$ID]);
 
         echo "<table class='table'>";
         echo "<tr><th style='background-color: green; color: white;'>ID</th><th style='background-color: green; color: white;'>Start Datum</th>

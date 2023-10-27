@@ -28,7 +28,7 @@ $_SESSION["naam"];
         $klantNaam = $_SESSION["naam"];
 
         // klant gegevens uit de tabel halen
-        require_once "Klant.php";
+        require_once "../classes/klant.php";
         
         $klant = new Klant();
         $klant->searchKlantNaam($klantNaam);
@@ -42,7 +42,7 @@ $_SESSION["naam"];
             <input type='password' name='wachtwoordvak' required><br><br>
             <input type='submit'>
         </form> 
-        <a href="klantlinks.php"><button>Annuleren</button></a>
+        <a href="/homePagina.php"><button>Annuleren</button></a>
     </div>
     
 </main>

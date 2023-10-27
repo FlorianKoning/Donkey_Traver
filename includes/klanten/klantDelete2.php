@@ -21,7 +21,7 @@
         $klantNaam = $_POST["naamvak"];
         $klantWachtwoord = $_POST["wachtwoordvak"];
 
-        require_once "Klant.php";
+        require_once "../classes/klant.php";
         $klant = new Klant();
 
         // supplier gegevens verwijderen
@@ -36,7 +36,7 @@
         echo "<br>";
         ?>
 
-        <button><a href='klantLinks.php'> Terug naar het menu </a></button><br><br>
+        <button><a href='/homePagina.php'> Terug naar het menu </a></button><br><br>
     </div>
     
 </main>
