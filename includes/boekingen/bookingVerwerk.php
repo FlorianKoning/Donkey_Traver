@@ -10,6 +10,7 @@ require '../classes/klant.php';
 $klant = new Klant();
 $klant->searchKlantNaam($_SESSION["naam"]);
 
+$klantID = $klant->getKlantID();
 $klantNaam = $klant->getKlantNaam();
 $klantEmail = $klant->getKlantEmail();
 $ingevoerdePinCode = 0;
@@ -27,8 +28,8 @@ $ingevoerdePinCode = 0;
 
 <body>
 
-    <!-- header en nav-bar -->
-    <header>
+ <!-- header en nav-bar -->
+ <header>
         <nav style="border-bottom: solid 1px #c7c7c7;" class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Donkey Travel</a>
@@ -38,16 +39,19 @@ $ingevoerdePinCode = 0;
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="../../homePagina.php">Home</a>
+                            <a class="nav-link" href=".../homePagina.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="bookingPage.php">Boeking</a>
+                            <a class="nav-link" aria-current="page" href="bookingPage.php">Boeking</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="bookingUpdate.php">Boeking Verwijderen</a>
+                            <a class="nav-link" aria-current="page" href="bookingOverzicht.php">Boeking Overzicht</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Donkey's</a>
+                            <a class="nav-link active" aria-current="page" href="bookingUpdate.php">Boeking Update</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="bookingVerwijderen.php">Boeking Verwijderen</a>
                         </li>
                     </ul>
                 </div>
@@ -90,7 +94,7 @@ $ingevoerdePinCode = 0;
                                 $db = new Database("localhost", "root", "", "donkey_travel");
                                 $boeking = new Boekingen($db->conn);
                     
-                                $boeking->create($_SESSION['startDatum'], $ingevoerdePinCode);
+                                $boeking->create($_SESSION['startDatum'], $ingevoerdePinCode, $klantID);
                             }
                         } else if ($ingevoerdePinCode != 0) {
                             echo "pincode nog niet ingevoerd of niet gevonden.";

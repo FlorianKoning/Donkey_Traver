@@ -35,7 +35,7 @@
                             <a class="nav-link" aria-current="page" href="bookingUpdate.php">Boeking Update</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="bookingUpdate.php">Boeking Verwijderen</a>
+                            <a class="nav-link" aria-current="page" href="bookingVerwijderen.php">Boeking Verwijderen</a>
                         </li>
                     </ul>
                 </div>

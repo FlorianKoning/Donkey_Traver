@@ -39,7 +39,7 @@ require '../classes/klant.php';
                             <a class="nav-link" aria-current="page" href="bookingUpdate.php">Boeking Update</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="bookingUpdate.php">Boeking Verwijderen</a>
+                            <a class="nav-link" aria-current="page" href="bookingVerwijderen.php">Boeking Verwijderen</a>
                         </li>
                     </ul>
                 </div>
@@ -58,7 +58,6 @@ require '../classes/klant.php';
             $db = new Database("localhost", "root", "", "donkey_travel");
             $boeking = new Boekingen($db->conn);
             $klant = new Klant();
-
             
             $klant->searchKlantNaam($_SESSION["naam"]);
 

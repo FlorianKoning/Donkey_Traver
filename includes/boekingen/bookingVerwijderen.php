@@ -1,11 +1,13 @@
- <?php
+<?php
 session_start();
-$_SESSIONS["naam"];
+$_SESSION["naam"];
 
 require '../classes/booking.php';
+require '../classes/klant.php';
+
 $db = new Database("localhost", "root", "", "donkey_travel");
 $boeking = new Boekingen($db->conn);
-$klanten = new Klanten();
+$klant = new Klant();
 
 //! moet nog ID kunnen krijgen uit een session
 ?>
@@ -64,10 +66,22 @@ $klanten = new Klanten();
             $klant->searchKlantNaam($_SESSION["naam"]);
 
 
-            $boeking->readTabelID($klant->getKlantID());
-            ?>     
+            $boeking->readTabelID($klant->getKlantID());    
+            ?> 
+            <form method="get">
+                <button type="submit" name="deleteButton" class="btn btn-primary">Verwijder</button>    
+            </form> 
+            <?php
+
+            if (isset($_GET['deleteButton'])) {
+                $klant->searchKlantNaam($_SESSION["naam"]);
+                $boeking->delete($klant->getKlantID());
+                echo "boeking verwijderd";
+            }
+
+            ?>
         </div>
-        
+
     </main>
 </body>
 </html>

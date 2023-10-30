@@ -8,29 +8,30 @@ class Boekingen {
 
     public function __construct ($db) {
         $this->conn = $db;
+
     }
 
     // alle getters
-    public function getDatum($ID) {
+    public function getDatum($klantenID) {
         $sql = "SELECT startDatum FROM bookingen WHERE ID = ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute[$ID];
+        $stmt->execute[$klantenID];
     }
 
-    public function getPinCode($ID) {
+    public function getPinCode($klantenID) {
         $sql = "SELECT pinCode FROM bookingen WHERE ID = ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute[$ID];
+        $stmt->execute[$klantenID];
 
         if ($row = $stmt->fetch()) {
             $this->pinCode = $row['pinCode'];
         }
     }
 
-    public function read($ID) {
-        $sql = "SELECT * FROM bookingen WHERE ? = ID";
+    public function read($klantenID) {
+        $sql = "SELECT * FROM bookingen WHERE klantenID = ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute([$ID]);
+        $stmt->execute([$klantenID]);
         
         if ($row = $stmt->fetch()) {
             echo "boeking id: " .  $row['ID'] . "<br>";
@@ -40,10 +41,10 @@ class Boekingen {
         }
     }
 
-    public function create($startDatum, $pinCode) {
-        $sql = "INSERT INTO boekingen( startDatum, pinCode) VALUES ( ?, ?)";
+    public function create($startDatum, $pinCode, $klantenID) {
+        $sql = "INSERT INTO boekingen( startDatum, pinCode, klantenID) VALUES ( ?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute([$startDatum, $pinCode]);
+        $stmt->execute([$startDatum, $pinCode, $klantenID]);
         if ($stmt) {
             echo "Gelukt om nieuwe boeking aan te maken!";
         } else {
@@ -74,10 +75,10 @@ class Boekingen {
         echo "</table>";
     }
 
-    public function readTabelID($ID) {
-        $sql = "SELECT * FROM boekingen WHERE ? = ID";
+    public function readTabelID($klantenID) {
+        $sql = "SELECT * FROM boekingen WHERE klantenID = ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute([$ID]);
+        $stmt->execute([$klantenID]);
 
         echo "<table class='table'>";
         echo "<tr><th style='background-color: green; color: white;'>ID</th><th style='background-color: green; color: white;'>Start Datum</th>
@@ -96,20 +97,20 @@ class Boekingen {
         echo "</table>";
     }
 
-    public function searchPincode($ID) {
-        $sql = "SELECT pinCode FROM boekingen WHERE ? = ID";
+    public function searchPincode($klantenID) {
+        $sql = "SELECT pinCode FROM boekingen WHERE klantenID = ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute([$ID]);
+        $stmt->execute([$klantenID]);
 
         if ($row = $stmt->fetch()) {
             echo $row['pinCode'];
         }
     }
 
-    public function searchTabel($ID) {
-        $sql = "SELECT * FROM boekingen WHERE ? = ID";
+    public function searchTabel($klantenID) {
+        $sql = "SELECT * FROM boekingen WHERE klantenID = ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute([$ID]);
+        $stmt->execute([$klantenID]);
 
         echo "<table class='table'>";
         echo "<tr><th style='background-color: green; color: white;'>ID</th><th style='background-color: green; color: white;'>Start Datum</th>
@@ -128,10 +129,10 @@ class Boekingen {
         echo "</table>";
     }
 
-    public function update($datum, $pincode, $ID) {
-        $sql = "UPDATE boekingen SET startDatum = ?, pinCode = ? WHERE ID = ?";
+    public function update($datum, $pincode, $klantenID) {
+        $sql = "UPDATE boekingen SET startDatum = ?, pinCode = ? WHERE klantenID = ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute([$datum, $pincode, $ID]);
+        $stmt->execute([$datum, $pincode, $klantenID]);
 
         if ($stmt) {
             echo 'Je boeking is bij gewerkt';
@@ -140,10 +141,10 @@ class Boekingen {
         }
     }
 
-    public function delete($ID) {
-        $sql = "DELETE  FROM `boekingen` WHERE ID = ?";
+    public function delete($klantenID) {
+        $sql = "DELETE  FROM `boekingen` WHERE klantenID = ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute([$ID]);
+        $stmt->execute([$klantenID]);
 
         if ($stmt) {
             echo 'Je boeking is verwijderd';

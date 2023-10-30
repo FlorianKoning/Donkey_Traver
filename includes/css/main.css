@@ -94,15 +94,12 @@
 }
 
 .pageTitle {
-    /* display: flex;
+    display: flex;
     width: 100%;
     height: 100px;
     align-content: center;
     justify-content: center;
-    align-items: center; */
-    width: 350px;
-    margin: 0 auto;
-    border: solid 1px black;
+    align-items: center;
 }
 
 .overzichtbox {

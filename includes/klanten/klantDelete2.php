@@ -36,7 +36,7 @@
         echo "<br>";
         ?>
 
-        <button><a href='/homePagina.php'> Terug naar het menu </a></button><br><br>
+        <button><a href='../../homePagina.php'> Terug naar het menu </a></button><br><br>
     </div>
     
 </main>
