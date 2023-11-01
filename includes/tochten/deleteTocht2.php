@@ -20,7 +20,7 @@
         $tochtID = $_POST["tochtidvak"];
 
         // tocht gegevens uit de tabel halen
-        require_once "tocht.php";
+        require_once "../classes/tocht.php";
         
         $tocht = new Tocht();
         $tocht->searchTochtID($tochtID);

@@ -20,7 +20,7 @@
             // id uit het formulier halen
             $tochtID = $_POST["tochtidvak"];
 
-            require_once "tocht.php";  
+            require_once "../classes/tocht.php";  
 
             $tocht = new Tocht();
             // tocht gegevens uit  de tabel halen

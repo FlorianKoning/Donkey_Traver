@@ -17,9 +17,9 @@
             </p>
 
             <?php
-            require "tocht.php";
+            require "../classes/tocht.php";
 
-            echo "<a href='index.php'> Terug naar het menu </a>";
+            echo "<button><a href='homePagina.php'> Terug naar het menu </a></button>";
 
             $tocht = new Tocht();
             $tocht->readTocht();

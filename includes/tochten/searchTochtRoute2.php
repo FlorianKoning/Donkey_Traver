@@ -17,13 +17,13 @@
             $tochtRoute = $_POST["tochtroutevak"];
 
             // supplier gegevens uit  de tabel halen 
-            require_once "tocht.php";  
+            require_once "../classes/tocht.php";  
 
             $tocht = new Tocht();
             $tocht->searchTochtRoute($tochtRoute);
             $tocht->afdrukkenTocht();
 
-            echo "<button><a href='index.php'> Terug naar het menu </a></button>";
+            echo "<button><a href='homePagina.php'> Terug naar het menu </a></button>";
 
             ?>
         </div>

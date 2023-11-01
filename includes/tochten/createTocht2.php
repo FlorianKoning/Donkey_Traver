@@ -15,7 +15,7 @@
                 Het toevoegen van een tocht in de tabel tochten.
             </p>
             <?php
-            require "tocht.php";
+            require "../classes/tocht.php";
 
             $tochtID = NULL;
             $tochtOmschrijving = $_POST ["tochtomschrijvingvak"];
@@ -28,7 +28,7 @@
             // Tocht in de database zetten
             $tocht->createTocht();
             echo "<p>De tocht is toegevoegd</p><br>";
-            echo "<button><a> Terug naar het menu</a></button>"
+            echo "<button><a href='homePagina.php'> Terug naar het menu</a></button>";
             ?>
         </main>
     </body>

@@ -19,7 +19,7 @@
             $tochtRoute = $_POST["tochtroutevak"];
             $tochtAantaldagen = $_POST["routeaantaldagen"];
 
-            require "tocht.php";
+            require "../classes/tocht.php";
 
             $tocht = new Tocht($tochtOmschrijving, $tochtRoute, $tochtAantaldagen, $tochtID);
             // Update de gegevens in tabel tochten waar hetzelfde tocht id is
@@ -27,7 +27,7 @@
             $tocht->afdrukkenTocht();
 
             echo "<br>";
-            echo "<button class='backtohome'><a href='index.php'> Terug naar het menu </a></button>";
+            echo "<button><a href='homePagina.php'> Terug naar het menu </a></button>";
             ?>
         </div>
 

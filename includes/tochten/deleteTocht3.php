@@ -22,7 +22,7 @@
 
         // product gegevens verwijderen
         if ($verwijderen === "1"){
-            require "tocht.php";
+            require "../classes/tocht.php";
             $tocht = new Tocht();
             $tocht->deleteTocht($tochtID);
             echo "<p>De gegevens zijn verwijderd. <br /></p>";
@@ -32,7 +32,7 @@
         }
 
         echo "<br>";
-        echo "<button><a href='index.php'>Terug</a></button>";
+        echo "<button><a href='homePagina.php'>Terug</a></button>";
         ?>
     </div>
     
