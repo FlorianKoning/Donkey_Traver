@@ -28,7 +28,7 @@
             // Tocht in de database zetten
             $tocht->createTocht();
             echo "<p>De tocht is toegevoegd</p><br>";
-            echo "<button><a href='homePagina.php'> Terug naar het menu</a></button>";
+            echo "<button><a href='../../homePagina.php'> Terug naar het menu</a></button>";
             ?>
         </main>
     </body>

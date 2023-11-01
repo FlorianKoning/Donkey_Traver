@@ -32,7 +32,7 @@
         }
 
         echo "<br>";
-        echo "<button><a href='homePagina.php'>Terug</a></button>";
+        echo "<button><a href='../../homePagina.php'>Terug</a></button>";
         ?>
     </div>
     

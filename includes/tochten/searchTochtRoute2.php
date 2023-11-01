@@ -23,7 +23,7 @@
             $tocht->searchTochtRoute($tochtRoute);
             $tocht->afdrukkenTocht();
 
-            echo "<button><a href='homePagina.php'> Terug naar het menu </a></button>";
+            echo "<button><a href='../../homePagina.php'> Terug naar het menu </a></button>";
 
             ?>
         </div>

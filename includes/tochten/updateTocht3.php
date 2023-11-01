@@ -27,7 +27,7 @@
             $tocht->afdrukkenTocht();
 
             echo "<br>";
-            echo "<button><a href='homePagina.php'> Terug naar het menu </a></button>";
+            echo "<button><a href='../../homePagina.php'> Terug naar het menu </a></button>";
             ?>
         </div>
 

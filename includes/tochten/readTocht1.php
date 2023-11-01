@@ -19,7 +19,7 @@
             <?php
             require "../classes/tocht.php";
 
-            echo "<button><a href='homePagina.php'> Terug naar het menu </a></button>";
+            echo "<button><a href='../../homePagina.php'> Terug naar het menu </a></button>";
 
             $tocht = new Tocht();
             $tocht->readTocht();
