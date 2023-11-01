@@ -23,16 +23,16 @@
         require_once "tocht.php";
         
         $tocht = new Tocht();
-        $tocht->searchTochtRoute($tochtID);
+        $tocht->searchTochtID($tochtID);
         $tocht->afdrukkenTocht();
 
         echo "<form action='deleteTocht3.php' method='post'>";
-        // product mag niet meer gewijzigd worden
+        // tochtid mag niet meer gewijzigd worden
         echo "<input type='hidden' name='tochtidvak' value='$tochtID>";
         // Waarde 0 doorgegeven als er niet gecheckt wordt
         echo "<input type='hidden' name='verwijdervak' value='0'>";
         echo "<input type='checkbox' name='verwijdervak' value='1'>";
-        echo "Verwijder product. <br><br>";
+        echo "Verwijder Tocht. <br><br>";
         echo "<input type='submit'>";
         echo "</form>";
         ?>

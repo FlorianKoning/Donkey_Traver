@@ -20,8 +20,8 @@
             require_once "tocht.php";  
 
             $tocht = new Tocht();
-            $tocht->searTochtRoute($tochtRoute);
-            $tocht->adrukkenTocht();
+            $tocht->searchTochtRoute($tochtRoute);
+            $tocht->afdrukkenTocht();
 
             echo "<button><a href='index.php'> Terug naar het menu </a></button>";
 

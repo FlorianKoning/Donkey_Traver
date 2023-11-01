@@ -6,7 +6,7 @@ require "connect.php";
 class Tocht{
     public int $tochtID;
     public string $tochtOmschrijving;
-    public string $tochtRoute   ;
+    public string $tochtRoute;
     public int $tochtDagen;
 
     // wanneer de class wordt aangemaakt met | new Tocht() | dan worden er standaard gegevens ingezet op de variabelen bovenaan
@@ -58,12 +58,12 @@ class Tocht{
 
         // gegevens in de juiste database tabel zetten
         $db->SQLCommando("insert into tochten values 
-        (:tochtID, :tochtOmschrijving, :tochtRoute, :tochtDagen)
+        (:ID, :omschrijving, :route, :aantalDagen)
         ", [
-            "tochtID" => $tochtID,
-            "tochtOmschrijving" => $tochtOmschrijving,
-            "tochtRoute" => $tochtRoute,
-            "tochtDagen" => $tochtDagen,
+            "ID" => $tochtID,
+            "omschrijving" => $tochtOmschrijving,
+            "route" => $tochtRoute,
+            "aantalDagen" => $tochtDagen,
         ]);
     }
 
@@ -89,14 +89,14 @@ class Tocht{
 
         // Veranderen van de gegevens in de database gebaseerd op de gegeven tocht id
         $db->SQLCommando(
-        "update artikelen set
-                omschrijvingng   = :tochtOmschrijving,
-                route            = :tochtRoute,
-                aantalDagen      = :tochtDagen,
+        "update tochten set
+                omschrijving     = :omschrijving,
+                route            = :route,
+                aantalDagen      = :aantalDagen
         where   ID = :ID"
         ,[
             "ID" => $tochtID,
-            "omschrijvingng" => $tochtOmschrijving,
+            "omschrijving" => $tochtOmschrijving,
             "route" => $tochtRoute,
             "aantalDagen" => $tochtDagen,
         ]);
@@ -108,21 +108,36 @@ class Tocht{
         $db = new Database("localhost","root","","donkey_travel");
         
         // Checken waar de artikel id in de database overeenkomt met de gegeven artikel id
-        $db->SQLCommando("delete from tochten where ID  = :tochtID", ["ID" => $tochtID]);
+        $db->SQLCommando("delete from tochten where ID  = :ID", ["ID" => $tochtID]);
     }
-    
-    public function searchTochtRoute($tochtID){
+
+    public function searchTochtID($ID){
         $db = new Database("localhost","root","","donkey_travel");
 
         // Zoeken op tocht ID in de database
-        $artikelen = $db->SQLCommando("select * from tochten where ID = :tochtID", ["ID" => $tochtID]);
+        $tochten = $db->SQLCommando("select * from tochten where ID = :ID", ["ID" => $ID]);
     
         // artikel gegevens opvragen
         foreach ($tochten as $tocht) {
-            $this->tochtID = $tocht["tochtID"];
-            $this->tochtOmschrijving = $tocht["tochtOmschrijving"];
-            $this->tochtRoute = $tocht["tochtRoute"];
-            $this->tochtDagen = $tocht["tochtDagen"];
+            $this->tochtID = $tocht["ID"];
+            $this->tochtOmschrijving = $tocht["omschrijving"];
+            $this->tochtRoute = $tocht["route"];
+            $this->tochtDagen = $tocht["aantalDagen"];
+        }
+    }
+    
+    public function searchTochtRoute($tochtRoute){
+        $db = new Database("localhost","root","","donkey_travel");
+
+        // Zoeken op tocht ID in de database
+        $tochten = $db->SQLCommando("select * from tochten where route = :route", ["route" => $tochtRoute]);
+    
+        // artikel gegevens opvragen
+        foreach ($tochten as $tocht) {
+            $this->tochtID = $tocht["ID"];
+            $this->tochtOmschrijving = $tocht["omschrijving"];
+            $this->tochtRoute = $tocht["route"];
+            $this->tochtDagen = $tocht["aantalDagen"];
         }
     }
 
