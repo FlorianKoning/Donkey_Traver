@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="includes/css/main.css">
-    <title>donkey travel</title>
+    <title>Tocht | Home</title>
 </head>
-
-<body>
 
     <!-- header en nav-bar -->
     <header>
@@ -22,30 +20,25 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="homePagina.php">Home</a>
+                            <a class="nav-link" aria-current="page" href="/homePagina.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./includes/boekingen/bookingPage.php">Boeking</a>
+                            <a class="nav-link active" aria-current="page" href="createTocht1.php">Tocht Create</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./includes/klanten/klantHome.php">Klant</a>
+                            <a class="nav-link" aria-current="page" href="readTocht1.php">Tochten Bekijken</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./includes/tochten/tochHome.php">Tochten</a>
+                            <a class="nav-link" aria-current="page" href="updateTocht1.php">Tocht Updaten</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="deleteTocht1.php">Tocht Verwijderen</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-
-    <main>
-        
-    </main>
-
-
-
-
+    
 </body>
-
-</html> 
+</html>
