@@ -33,6 +33,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="klantGegevenVeranderen1.php">Wijzigingen klant</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.php">Uitloggen</a>
+                        </li>
                     </ul>
                 </div>
             </div>
